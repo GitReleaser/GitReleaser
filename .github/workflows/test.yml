@@ -1,4 +1,4 @@
-name: Cross-OS Tests
+name: Cross-OS Tests and CodeQL Analysis
 
 on:
   push:
@@ -15,6 +15,7 @@ env:
 
 permissions:
   contents: read
+  security-events: write
 
 jobs:
   test:
@@ -41,3 +42,18 @@ jobs:
       - run: git config --global user.email user@example.org
       - run: npm install
       - run: npm test
+
+  CodeQL-Build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v2
+        with:
+          languages: javascript
+
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v2
