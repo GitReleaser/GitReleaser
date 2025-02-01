@@ -27,3 +27,28 @@ jobs:
 
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v2
+
+  test:
+    strategy:
+      matrix:
+        os:
+          - ubuntu-latest
+          - windows-latest
+          - macos-latest
+        node:
+          - 16
+          - 18
+          - 20
+
+    runs-on: ${{ matrix.os }}
+    name: ${{ matrix.os }} (Node v${{ matrix.node }})
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node }}
+      - run: git config --global user.name User
+      - run: git config --global user.email user@example.org
+      - run: npm install
+      - run: npm test
