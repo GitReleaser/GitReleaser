@@ -1,4 +1,4 @@
 {
-  "entry": ["bin/release-git.js"],
-  "project": ["bin/*.js", "lib/**/*.js"]
+  "entry": ["bin/release-git.js", "lib/**/*.js"],
+  "project": ["bin/*.js", "lib/**/*.js", "test/**/*.js"]
 }
