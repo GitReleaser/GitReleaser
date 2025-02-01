@@ -58,6 +58,12 @@ npx release-git
 
 You will be prompted to select the new version, and more prompts will follow based on your configuration.
 
+To scan the codebase for unused or dead code, run the following script:
+
+```bash
+npm run scan-dead-code
+```
+
 ## Experimental: knowledge base
 
 You might want to ask your questions in the [Release It! knowledge base][14] (powered by OpenAI and [7-docs][15]). This
