@@ -51,9 +51,10 @@
     "knip": "knip",
     "lint": "eslint lib test",
     "format": "prettier --write \"{lib,test}/**/*.js\"",
-    "docs": "remark README.md 'docs/**/*.md' '.github/*.md' -o",
+    "docs": "remark README.md 'docs/**/*.md' -o",
     "test": "ava --no-worker-threads",
-    "release": "./bin/release-git.js"
+    "release": "./bin/release-git.js",
+    "scan-dead-code": "knip"
   },
   "author": {
     "email": "infosulaimanbd@gmail.com",
